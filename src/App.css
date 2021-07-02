@@ -9,7 +9,8 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 50s linear;
+    filter: hue-rotate(78deg);
   }
 }
 
@@ -25,7 +26,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: hsl(335, 95%, 68%);
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +36,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+ul li {
+  list-style-type: georgian;
 }
