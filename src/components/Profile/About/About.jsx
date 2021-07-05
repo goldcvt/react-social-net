@@ -1,6 +1,6 @@
 import stylesheet from './About.module.css';
 
-const About = () => {
+const About = (props) => {
     return (
         <div className = {stylesheet.about}>
             <div>

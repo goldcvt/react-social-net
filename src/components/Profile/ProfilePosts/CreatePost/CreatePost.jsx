@@ -1,6 +1,6 @@
 import stylesheet from "./CreatePost.module.css"
 
-const CreatePost = () => {
+const CreatePost = (props) => {
     return (
         <div className={stylesheet.create_post}>
             <textarea name="" className={stylesheet.textspace}></textarea>
