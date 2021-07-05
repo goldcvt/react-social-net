@@ -1,0 +1,23 @@
+.create_post {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.textspace {
+    height: 50px;
+    margin-top: 10px;
+}
+
+.add {
+    height: 30px;
+    width: 100px;
+    margin: 10px 0;
+}

@@ -11,15 +11,6 @@
   grid-gap: 10px;
 }
 
-.content {
-  grid-area: content;
-  background-color: blueviolet;
-}
-
 .app-logo {
   width: 20px;
-}
-
-img.wallpaper {
-  width: 1000px;
 }
