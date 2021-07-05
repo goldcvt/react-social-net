@@ -1,5 +1,5 @@
 .post {
-    margin: auto;
+    width: 100%;
 }
 
 .post_text {
@@ -8,6 +8,19 @@
 
 .post_content {
     margin: auto;
+}
+
+.author {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: min(5px, 1vw);
+    background-color: white;
+}
+
+.name {
+    padding-left: max(1.5vw, 15px);
 }
 
 .nav {
