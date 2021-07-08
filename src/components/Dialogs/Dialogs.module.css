@@ -1,0 +1,55 @@
+.dialogs_page {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 100%;
+    
+}
+
+.dialogs_selector {
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    width: 100%;
+    height: 80px;
+}
+
+.dialog__link {
+    text-decoration: none;
+    color: black;
+}
+
+
+.dialog__current {
+    background-color: tomato;
+    border: 2px solid black;
+}
+
+.message {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* This one is for messages to other people */
+.message__to {
+    background-color: wheat;
+    width: 40%;
+}
+
+/* This one is for messages from other people. Triangle inverted and color is different */
+.message__from {
+    background-color: yellowgreen;
+    width: 40%;
+    margin-left: auto;
+}
+
+.dialog_window {
+    display: flex;
+    flex-direction: column;
+    background-color: teal;
+}
