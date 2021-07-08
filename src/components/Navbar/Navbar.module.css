@@ -1,8 +1,23 @@
 .nav {
     grid-area: nav;
     background-color: burlywood;
+    display: flex;
+    flex-direction: column;
   }
 
 .item {
-    color: white;
+    display: flex;
+    justify-content: left;
+    height: 35px;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.item a {
+    text-decoration: none;
+    color: black;
+}
+
+a.active {
+  color: turquoise;
 }
