@@ -1,7 +1,40 @@
 .about {
-    margin: auto;
+    display: grid;
+    /* Will actually layout the thing like in facebook using grid
+        https://www.youtube.com/watch?v=HFG3BKOqOlE will help you with avatar overlapping background-image
+    */
+
 }
 
-.wallpaper {
+
+.name h1 {
+    color: white;
+}
+
+.name {
+    align-self: left;
+}
+
+.user_info_text {
+    font-size: 1.05rem;
+    padding-left: 20px;
+}
+
+.avatar_container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.avatar_container {
+    
+}
+
+img.wallpaper {
+    width: 100%;
+}
+
+div.wallpaper {
+    display: flex;
     width: 100%;
 }
