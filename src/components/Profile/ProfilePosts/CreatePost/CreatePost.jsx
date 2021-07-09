@@ -3,7 +3,7 @@ import stylesheet from "./CreatePost.module.css"
 const CreatePost = (props) => {
     return (
         <div className={stylesheet.create_post}>
-            <textarea name="" className={stylesheet.textspace}></textarea>
+            <textarea name="create_post" className={stylesheet.textspace} placeholder="Share something meaningful. Share something important"></textarea>
 
             <div className={stylesheet.buttons}>
                 <button className={stylesheet.add}></button>

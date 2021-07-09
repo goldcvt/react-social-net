@@ -7,18 +7,8 @@ const ProfilePosts = (props) => {
 
     // let's imagine posts came from props. And oh! author should be replaced with authorId
     // And! Instead of getting all the posts as an array we could do something like generator expr to fetch them from server
-    let postsData = [
-        {
-            id: 0, text: "Howdy, partner", author: "Ragnar Lodbrok", avatarUrl: 'https://i.ytimg.com/vi/BHPPLdWeGiw/maxresdefault.jpg',
-            likes: 312, shares: 12
-        },
-        {
-            id: 1, text: "Lorem ipsemum... You know the drill", author: "Ragnar Lodbrok", avatarUrl: 'https://i.ytimg.com/vi/BHPPLdWeGiw/maxresdefault.jpg',
-            likes: 228, shares: 124
-        }
-    ];
 
-    let posts = postsData.map((post) => 
+    let posts = props.posts.map((post) => 
         (<Post text={post.text} author={post.author} author_avatar={post.avatarUrl} likes={post.likes} shares={post.shares} />)
     );
 

@@ -4,22 +4,9 @@ import DialogItem from './DialogItem/DialogItem';
 
 const Dialogs = (props) => {
 
-    // let's imagine that this thing came into our props
-    const dialogItemsData = [
-        { userId: 1, name: "Brigitte Valentine" },
-        { userId: 2, name: "Actual Name" },
-        { userId: 3, name: "Not an Actual Name" },
-    ];
+    let messages = props.messageData.map(message => <Message message={message.text} toMe={message.toMe} />);
 
-    const messageData = [
-        { msgId: 0, text: "Fuck", toMe: true },
-        { msgId: 1, text: "I miss you!", toMe: true },
-        { msgId: 2, text: "Too bad", toMe: false }
-    ]
-
-    let messages = messageData.map(message => <Message message={message.text} toMe={message.toMe} />);
-
-    let dialogs = dialogItemsData.map(user => <DialogItem user={user} />);
+    let dialogs = props.dialogItemsData.map(user => <DialogItem user={user} />);
 
     return (
         <div className={stylesheet.dialogs_page}>

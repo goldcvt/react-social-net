@@ -9,14 +9,15 @@ import Feed from './components/Feed/Feed';
 import Settings from './components/Settings/Settings';
 
 const App = (props) => {
+
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
         <Navbar/>
         <div className="app-wrapper-content">
-          <Route component={Profile} path="/profile" />
-          <Route component={Dialogs} path="/dialogs" />
+          <Route render={() => <Profile posts={props.profile.postsData} user={props.profile.userData} />} path="/profile" />
+          <Route render={() => <Dialogs messageData={props.dialogs.messageData} dialogItemsData={props.dialogs.dialogItemsData} />} path="/dialogs" />
           <Route component={Music} path="/music" />
           <Route component={Feed} path="/feed" />
           <Route component={Settings} path="/settings" />
