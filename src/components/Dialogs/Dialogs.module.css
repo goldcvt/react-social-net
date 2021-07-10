@@ -2,31 +2,15 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
     width: 100%;
+    height: 100%;
     
 }
 
 .dialogs_selector {
-    display: flex;
-    flex-direction: column;
-}
-
-.dialog {
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    width: 100%;
-    height: 80px;
-}
-
-.dialog__link {
-    text-decoration: none;
-    color: black;
-}
-
-
-.dialog__current {
-    background-color: tomato;
-    border: 2px solid black;
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 1fr);
 }
 
 .message {
@@ -39,6 +23,9 @@
 .message__to {
     background-color: wheat;
     width: 40%;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    margin-left: 5px;
 }
 
 /* This one is for messages from other people. Triangle inverted and color is different */
@@ -46,6 +33,9 @@
     background-color: yellowgreen;
     width: 40%;
     margin-left: auto;
+    margin-right: 5px;
+    border-radius: 2px;
+    margin-bottom: 2px;
 }
 
 .dialog_window {
@@ -53,5 +43,5 @@
     flex-direction: column;
     background-color: teal;
     justify-content: flex-end;
-    padding-bottom: 20px;
+    height: 100%;
 }
