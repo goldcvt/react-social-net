@@ -6,7 +6,11 @@ const SendMessage = (props) => {
             <div className={stylesheet.field}>
                 <input type="text" />
             </div>
-            <div className={stylesheet.button_wrapper}><button className={stylesheet.button}>></button></div>
+            <div className={stylesheet.button_wrapper}>
+                <button className={stylesheet.button}>
+                    >
+                </button>
+            </div>
         </div>
     )
 }
