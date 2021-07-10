@@ -7,8 +7,8 @@ import ProfilePosts from './ProfilePosts/ProfilePosts';
 
 
 const Profile = (props) => {
-    let userData = props.user;
-    let postsData = props.posts;
+    let userData = props.state.userData;
+    let postsData = props.state.postsData;
     return (
         <div className={stylesheet.content}>
             <About user={userData} />
