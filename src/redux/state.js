@@ -28,15 +28,18 @@ let userData = {
 
 const dialogItemsData = [{
     userId: 1,
-    name: "Brigitte Valentine"
+    name: "Mary J Blige",
+    avatarUrl: "https://bstars.ru/media/djcatalog2/images/item/20/mary-j-blige.1_f.webp"
   },
   {
     userId: 2,
-    name: "Actual Name"
+    name: "John Legend",
+    avatarUrl: "https://cloudfront-us-east-1.images.arcpublishing.com/pmn/DR2KSCTTKNCMBGUZCCFOCQZTV4.jpg"
   },
   {
     userId: 3,
-    name: "Not an Actual Name"
+    name: "Kanye West",
+    avatarUrl: "https://www.film.ru/sites/default/files/styles/thumb_260x320/public/persones/_imported/1577190.jpg"
   },
 ];
 
@@ -57,9 +60,37 @@ const messageData = [{
   }
 ];
 
-let dialogs = {dialogItemsData, messageData};
-let profile = {postsData, userData};
+let friends = [{
+    userId: 1,
+    name: "Mary J Blige",
+    avatarUrl: "https://bstars.ru/media/djcatalog2/images/item/20/mary-j-blige.1_f.webp"
+  },
+  {
+    userId: 2,
+    name: "John Legend",
+    avatarUrl: "https://cloudfront-us-east-1.images.arcpublishing.com/pmn/DR2KSCTTKNCMBGUZCCFOCQZTV4.jpg"
+  },
+  {
+    userId: 3,
+    name: "Kanye West",
+    avatarUrl: "https://www.film.ru/sites/default/files/styles/thumb_260x320/public/persones/_imported/1577190.jpg"
+  },
+];
 
-let state = {dialogs, profile};
+let dialogs = {
+  dialogItemsData,
+  messageData
+};
+let profile = {
+  postsData,
+  userData
+};
+
+
+let state = {
+  dialogs,
+  profile,
+  friends
+};
 
 export { state };
