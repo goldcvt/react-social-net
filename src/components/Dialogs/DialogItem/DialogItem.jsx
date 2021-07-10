@@ -1,12 +1,15 @@
-import stylesheet from '../Dialogs.module.css';
+import stylesheet from './DialogItem.module.css';
 import { NavLink } from 'react-router-dom';
 
 const DialogItem = (props) => {
-    let { userId, name } = props.user;
+    let { userId, name, avatarUrl } = props.user;
     return (
         <NavLink className={stylesheet.dialog__link} activeClassName={stylesheet.dialog__current} to={`/dialogs/${userId}`}>
             <div className={stylesheet.dialog}>
-                {name}
+                <div className={stylesheet.user__avatar}>
+                    <img src={avatarUrl} alt={name} />
+                </div>
+                <span className={stylesheet.user__name}>{name}</span>
             </div>
         </NavLink>
     );
