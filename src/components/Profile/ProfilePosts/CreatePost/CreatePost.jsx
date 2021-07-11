@@ -4,13 +4,12 @@ import stylesheet from "./CreatePost.module.css"
 
 
 const CreatePost = (props) => {
-    debugger;
     let textElement = React.createRef();
 
     let addPost = () =>
     {
         let text = textElement.current.value;
-        props.callbackFn(
+        props.functions.create(
             props.posts, 
             text,
             props.userData.name,

@@ -9,12 +9,11 @@ import ProfilePosts from './ProfilePosts/ProfilePosts';
 const Profile = (props) => {
     let userData = props.state.userData;
     let postsData = props.state.postsData;
-    let createPost = props.state.createPost;
-    let state = {postsData, createPost, userData}
+    let state = {postsData, userData}
     return (
         <div className={stylesheet.content}>
             <About user={userData} />
-            <ProfilePosts state={state} />
+            <ProfilePosts state={state} functions={props.functions.posts} />
         </div>
     );
 }

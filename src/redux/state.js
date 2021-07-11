@@ -86,7 +86,6 @@ let dialogs = {
 let profile = {
   postsData,
   userData,
-  createPost
 };
 
 
@@ -98,3 +97,13 @@ let state = {
 };
 
 export { state };
+
+export let functions = {
+  dialogs: null,
+  profile: {
+    posts: {
+      create: createPost
+    }
+  },
+  friends: null
+}
