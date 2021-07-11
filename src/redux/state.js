@@ -1,3 +1,5 @@
+import createPost from './createPost';
+
 let postsData = [{
     id: 0,
     text: "Howdy, partner",
@@ -83,8 +85,10 @@ let dialogs = {
 };
 let profile = {
   postsData,
-  userData
+  userData,
+  createPost
 };
+
 
 
 let state = {
