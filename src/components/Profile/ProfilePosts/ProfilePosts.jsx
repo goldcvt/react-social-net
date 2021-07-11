@@ -4,11 +4,10 @@ import Post from "./Post/Post"
 
 const ProfilePosts = (props) => {
 
-
     // let's imagine posts came from props. And oh! author should be replaced with authorId
     // And! Instead of getting all the posts as an array we could do something like generator expr to fetch them from server
 
-    let posts = props.posts.map((post) => 
+    let posts = props.state.postsData.map((post) => 
         (<Post text={post.text} author={post.author} author_avatar={post.avatarUrl} likes={post.likes} shares={post.shares} />)
     );
 
@@ -17,7 +16,7 @@ const ProfilePosts = (props) => {
             <div className={stylesheet.header_container}>
                 <h1>My posts</h1>
             </div>
-            <CreatePost />
+            <CreatePost callbackFn={props.state.createPost} posts={posts} userData ={props.state.userData} />
             
             { posts }
         </div>
