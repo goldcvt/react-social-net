@@ -1,5 +1,5 @@
 import {addPost, typingPost} from './profileFunctions';
-import {addMessage} from './dialogFunctions';
+import {addMessage, typingMessage} from './dialogFunctions';
 import {rerenderTree} from '../render';
 
 let postsData = [{
@@ -30,7 +30,11 @@ let userData = {
       laboriosam saepe tempora temporibus. Et incidunt architecto quaerat? Dolore, maxime itaque!`
 };
 
-const dialogItemsData = [{
+let currentPost = {
+  text: ""
+};
+
+let dialogItemsData = [{
     userId: 1,
     name: "Mary J Blige",
     avatarUrl: "https://bstars.ru/media/djcatalog2/images/item/20/mary-j-blige.1_f.webp"
@@ -47,7 +51,7 @@ const dialogItemsData = [{
   },
 ];
 
-const messageData = [{
+let messageData = [{
     msgId: 0,
     text: "Fuck",
     toMe: true
@@ -63,6 +67,10 @@ const messageData = [{
     toMe: false
   }
 ];
+
+let currentMessage = {
+  text: ""
+}
 
 let friends = [{
     userId: 1,
@@ -81,14 +89,12 @@ let friends = [{
   },
 ];
 
-let currentPost = {
-  text: ""
-};
-
 let dialogs = {
   dialogItemsData,
-  messageData
+  messageData,
+  currentMessage
 };
+
 let profile = {
   postsData,
   userData,
@@ -98,8 +104,12 @@ let profile = {
 export let functions = {
   dialogs: {
     messages: {
-      create: (messages, msgText) => {
-        addMessage(messages, msgText);
+      create: (messages, text) => {
+        addMessage(messages, text);
+        rerenderTree(state);
+      },
+      changeCurrent: (msg, text) => {
+        typingMessage(msg, text);
         rerenderTree(state);
       }
     }
