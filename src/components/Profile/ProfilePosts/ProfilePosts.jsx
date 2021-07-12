@@ -16,7 +16,7 @@ const ProfilePosts = (props) => {
             <div className={stylesheet.header_container}>
                 <h1>My posts</h1>
             </div>
-            <CreatePost functions={props.functions} posts={posts} userData ={props.state.userData} />
+            <CreatePost functions={props.functions} posts={props.state.postsData} userData ={props.state.userData} />
             
             { posts }
         </div>

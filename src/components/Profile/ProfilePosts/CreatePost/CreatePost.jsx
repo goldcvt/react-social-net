@@ -17,7 +17,7 @@ const CreatePost = (props) => {
             0,
             0
         );
-        // Shit is working but ain't no thing is rendered
+        textElement.current.value = "";
     }
 
     return (

@@ -1,17 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { state, functions } from './redux/state';
+import { rerenderTree } from './render';
+
+functions.dialogs.messages.create(state.dialogs.messageData, "WOW!")
+
+rerenderTree(state);
 
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App state={state} functions={functions} />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

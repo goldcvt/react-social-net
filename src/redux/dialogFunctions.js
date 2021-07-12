@@ -1,9 +1,9 @@
-export let newMessage = (messages, messageText) => {
-    let _id = messages[messages.length-1].id;
+export let addMessage = (messages, messageText) => {
+    let _id = messages[messages.length-1].msgId + 1;
 
     messages.push({
-        id: _id,
-        message: messageText,
+        msgId: _id,
+        text: messageText,
         toMe: false
     })
 }

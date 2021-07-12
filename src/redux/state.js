@@ -1,5 +1,6 @@
-import {newPost} from './profileFunctions';
-import {newMessage} from './dialogFunctions';
+import {addPost} from './profileFunctions';
+import {addMessage} from './dialogFunctions';
+import {rerenderTree} from '../render';
 
 let postsData = [{
     id: 0,
@@ -89,26 +90,28 @@ let profile = {
   userData,
 };
 
-
-
-let state = {
-  dialogs,
-  profile,
-  friends
-};
-
-export { state };
-
 export let functions = {
   dialogs: {
     messages: {
-      create: newMessage
+      create: (messages, msgText) => {
+        addMessage(messages, msgText);
+        rerenderTree(state);
+      }
     }
   },
   profile: {
     posts: {
-      create: newPost
+      create: (posts, text, author, avatarUrl, likes, shares) => {
+        addPost(posts, text, author, avatarUrl, likes, shares);
+        rerenderTree(state);
+      }
     }
   },
   friends: null
 }
+
+export let state = {
+  dialogs,
+  profile,
+  friends
+};

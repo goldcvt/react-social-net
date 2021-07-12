@@ -7,6 +7,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Music from './components/Music/Music';
 import Feed from './components/Feed/Feed';
 import Settings from './components/Settings/Settings';
+import { functions } from './redux/state';
 
 const App = (props) => {
 
@@ -16,8 +17,8 @@ const App = (props) => {
         <Header />
         <Navbar state={props.state.friends} />
         <div className="app-wrapper-content">
-          <Route render={() => <Profile state={props.state.profile} functions={props.functions.profile} />} path="/profile" />
-          <Route render={() => <Dialogs state={props.state.dialogs} functions={props.functions.dialogs} />} path="/dialogs" />
+          <Route render={() => <Profile state={props.state.profile} functions={functions.profile} />} path="/profile" />
+          <Route render={() => <Dialogs state={props.state.dialogs} functions={functions.dialogs} />} path="/dialogs" />
           <Route component={Music} path="/music" />
           <Route component={Feed} path="/feed" />
           <Route component={Settings} path="/settings" />
