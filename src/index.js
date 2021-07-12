@@ -2,8 +2,6 @@ import reportWebVitals from './reportWebVitals';
 import { state, functions } from './redux/state';
 import { rerenderTree } from './render';
 
-functions.dialogs.messages.create(state.dialogs.messageData, "WOW!")
-
 rerenderTree(state);
 
 
