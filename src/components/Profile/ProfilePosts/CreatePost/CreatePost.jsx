@@ -6,8 +6,7 @@ import stylesheet from "./CreatePost.module.css"
 const CreatePost = (props) => {
     let textElement = React.createRef();
 
-    let addPost = () =>
-    {
+    let addPost = () => {
         let text = textElement.current.value;
         props.functions.create(
             props.posts, 
@@ -20,10 +19,16 @@ const CreatePost = (props) => {
         textElement.current.value = "";
     }
 
+    let currentPost = () => {
+        props.functions.changeCurrent(props.currentPost,  textElement.current.value);
+        debugger;
+        textElement.current.value = props.currentPost.text;
+    }
+
     return (
         <div className={stylesheet.create_post}>
             <textarea name="create_post" className={stylesheet.textspace} 
-            placeholder="Share something meaningful. Share something important" ref={textElement}>
+            placeholder="Share something meaningful. Share something important" ref={textElement} onInput={currentPost} >
 
             </textarea>
 
