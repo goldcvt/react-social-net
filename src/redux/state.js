@@ -1,4 +1,4 @@
-import {addPost} from './profileFunctions';
+import {addPost, typingPost} from './profileFunctions';
 import {addMessage} from './dialogFunctions';
 import {rerenderTree} from '../render';
 
@@ -81,6 +81,10 @@ let friends = [{
   },
 ];
 
+let currentPost = {
+  text: ""
+};
+
 let dialogs = {
   dialogItemsData,
   messageData
@@ -88,6 +92,7 @@ let dialogs = {
 let profile = {
   postsData,
   userData,
+  currentPost
 };
 
 export let functions = {
@@ -103,6 +108,10 @@ export let functions = {
     posts: {
       create: (posts, text, author, avatarUrl, likes, shares) => {
         addPost(posts, text, author, avatarUrl, likes, shares);
+        rerenderTree(state);
+      },
+      changeCurrent: (post, text) => {
+        typingPost(post, text);
         rerenderTree(state);
       }
     }
