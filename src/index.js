@@ -1,5 +1,5 @@
 import reportWebVitals from './reportWebVitals';
-import { state, functions } from './redux/state';
+import { state } from './redux/state';
 import { rerenderTree } from './render';
 
 rerenderTree(state);
