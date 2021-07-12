@@ -7,16 +7,15 @@ const CreatePost = (props) => {
     let textElement = React.createRef();
 
     let addPost = () => {
-        let text = props.currentPost.text;
+        // let text = props.currentPost.text; // We don't need it since we can post with currentPost value
         props.functions.create(
             props.posts, 
-            text,
             props.userData.name,
             props.userData.avatarUrl,
             0,
             0
         );
-        props.functions.changeCurrent(props.currentPost,  "");
+        // props.functions.changeCurrent(props.currentPost,  "");
     }
 
     let currentPost = () => {

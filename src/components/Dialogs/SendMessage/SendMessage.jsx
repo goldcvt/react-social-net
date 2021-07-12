@@ -5,9 +5,9 @@ const SendMessage = (props) => {
     let textElement = React.createRef();
 
     let sendMessage = () => {
-        let text = textElement.current.value;
-        props.functions.create(props.state.messageData, text);
-        props.functions.changeCurrent(props.state.currentMessage, "");
+        // let text = textElement.current.value;
+        props.functions.create(props.state.messageData);
+        // props.functions.changeCurrent(props.state.currentMessage, "");
     }
 
     let typeChars = () => {

@@ -101,11 +101,13 @@ let profile = {
   currentPost
 };
 
+
 export let functions = {
   dialogs: {
     messages: {
-      create: (messages, text) => {
-        addMessage(messages, text);
+      create: (messages) => {
+        addMessage(messages, state.dialogs.currentMessage.text);
+        typingMessage(state.dialogs.currentMessage, "");
         rerenderTree(state);
       },
       changeCurrent: (msg, text) => {
@@ -116,8 +118,9 @@ export let functions = {
   },
   profile: {
     posts: {
-      create: (posts, text, author, avatarUrl, likes, shares) => {
-        addPost(posts, text, author, avatarUrl, likes, shares);
+      create: (posts, author, avatarUrl, likes, shares) => {
+        addPost(posts, state.profile.currentPost.text, author, avatarUrl, likes, shares);
+        typingPost(state.profile.currentPost, "");
         rerenderTree(state);
       },
       changeCurrent: (post, text) => {
@@ -134,3 +137,6 @@ export let state = {
   profile,
   friends
 };
+
+window.state = state;
+window.functions = functions;
