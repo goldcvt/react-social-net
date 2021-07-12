@@ -21,7 +21,6 @@ const CreatePost = (props) => {
 
     let currentPost = () => {
         props.functions.changeCurrent(props.currentPost,  textElement.current.value);
-        debugger;
         textElement.current.value = props.currentPost.text;
     }
 
