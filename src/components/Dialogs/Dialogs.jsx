@@ -1,7 +1,7 @@
 import stylesheet from './Dialogs.module.css';
 import Message from './Message/Message';
 import DialogItem from './DialogItem/DialogItem';
-import SendMessage from './DialogItem/SendMessage/SendMessage';
+import SendMessage from './SendMessage/SendMessage';
 
 const Dialogs = (props) => {
     let messages = props.state.messageData.map(message => <Message message={message.text} toMe={message.toMe} />);
@@ -19,7 +19,7 @@ const Dialogs = (props) => {
                 smart-ass routing component of our own */}
                 
                 {messages}
-                <SendMessage />
+                <SendMessage state={props.state.messageData} functions={props.functions.messages} />
             </div>
         </div>
     );
