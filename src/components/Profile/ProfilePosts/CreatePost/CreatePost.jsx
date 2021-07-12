@@ -7,7 +7,7 @@ const CreatePost = (props) => {
     let textElement = React.createRef();
 
     let addPost = () => {
-        let text = textElement.current.value;
+        let text = props.currentPost.text;
         props.functions.create(
             props.posts, 
             text,
@@ -16,20 +16,18 @@ const CreatePost = (props) => {
             0,
             0
         );
-        textElement.current.value = "";
+        props.functions.changeCurrent(props.currentPost,  "");
     }
 
     let currentPost = () => {
         props.functions.changeCurrent(props.currentPost,  textElement.current.value);
-        textElement.current.value = props.currentPost.text;
     }
 
     return (
         <div className={stylesheet.create_post}>
             <textarea name="create_post" className={stylesheet.textspace} 
-            placeholder="Share something meaningful. Share something important" ref={textElement} onInput={currentPost} >
-
-            </textarea>
+            placeholder="Share something meaningful. Share something important" ref={textElement} value={props.currentPost.text} 
+            onChange={currentPost} />
 
             <div className={stylesheet.buttons}>
                 <button className={stylesheet.add} onClick={addPost}>Post</button>
