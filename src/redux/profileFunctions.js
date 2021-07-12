@@ -12,10 +12,5 @@ export let addPost = (posts, text, author, avatarUrl, likes, shares) => {
 }
 
 export let typingPost = (curPost, text) => {
-    if (text === "") {
-        curPost.text = curPost.text.slice(0, curPost.text.length - 1);
-    } else {
-        curPost.text = text;
-    }
-    
+    curPost.text = text;
 }

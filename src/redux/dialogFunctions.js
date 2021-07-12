@@ -7,3 +7,7 @@ export let addMessage = (messages, messageText) => {
         toMe: false
     })
 }
+
+export let typingMessage = (curMessage, text) => {
+    curMessage.text = text;
+}
