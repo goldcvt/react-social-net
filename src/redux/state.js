@@ -1,4 +1,5 @@
-import createPost from './createPost';
+import {newPost} from './profileFunctions';
+import {newMessage} from './dialogFunctions';
 
 let postsData = [{
     id: 0,
@@ -99,10 +100,14 @@ let state = {
 export { state };
 
 export let functions = {
-  dialogs: null,
+  dialogs: {
+    messages: {
+      create: newMessage
+    }
+  },
   profile: {
     posts: {
-      create: createPost
+      create: newPost
     }
   },
   friends: null
