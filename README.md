@@ -1,4 +1,4 @@
-Just a basic [vk.com] clone
+Just a basic [vk.com](https://vk.com) clone
 
 ## Available Scripts
 
