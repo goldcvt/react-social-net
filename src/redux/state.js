@@ -1,6 +1,8 @@
 import {addPost, typingPost} from './profileFunctions';
 import {addMessage, typingMessage} from './dialogFunctions';
-import {rerenderTree} from '../render';
+
+
+let rerenderTree = (state) => (null);
 
 let postsData = [{
     id: 0,
@@ -137,6 +139,10 @@ export let state = {
   profile,
   friends
 };
+
+export const subscribe = (observer) => {
+  rerenderTree = observer;
+}
 
 window.state = state;
 window.functions = functions;
