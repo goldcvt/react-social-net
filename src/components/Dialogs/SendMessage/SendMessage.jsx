@@ -6,12 +6,12 @@ const SendMessage = (props) => {
 
     let sendMessage = () => {
         // let text = textElement.current.value;
-        props.functions.create(props.state.messageData);
+        props.functions.create();
         // props.functions.changeCurrent(props.state.currentMessage, "");
     }
 
     let typeChars = () => {
-        props.functions.changeCurrent(props.state.currentMessage, textElement.current.value);
+        props.functions.changeCurrent(textElement.current.value);
     }
 
     return (

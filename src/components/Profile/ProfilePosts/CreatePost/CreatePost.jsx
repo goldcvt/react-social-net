@@ -9,7 +9,6 @@ const CreatePost = (props) => {
     let addPost = () => {
         // let text = props.currentPost.text; // We don't need it since we can post with currentPost value
         props.functions.create(
-            props.posts, 
             props.userData.name,
             props.userData.avatarUrl,
             0,
@@ -19,7 +18,7 @@ const CreatePost = (props) => {
     }
 
     let currentPost = () => {
-        props.functions.changeCurrent(props.currentPost,  textElement.current.value);
+        props.functions.changeCurrent(textElement.current.value);
     }
 
     return (
