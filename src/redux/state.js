@@ -1,9 +1,6 @@
 import {addPost, typingPost} from './profileFunctions';
 import {addMessage, typingMessage} from './dialogFunctions';
 
-
-let rerenderTree = (state) => (null);
-
 let postsData = [{
     id: 0,
     text: "Howdy, partner",
@@ -104,45 +101,72 @@ let profile = {
 };
 
 
-export let functions = {
+let functions = {
   dialogs: {
     messages: {
-      create: (messages) => {
-        addMessage(messages, state.dialogs.currentMessage.text);
-        typingMessage(state.dialogs.currentMessage, "");
-        rerenderTree(state);
+      create: () => {
+        addMessage(store.getState().dialogs.messageData, store.getState().dialogs.currentMessage.text);
+        typingMessage(store.getState().dialogs.currentMessage, "");
+        // This looks evil
+        store._callSubscriber(store);
       },
-      changeCurrent: (msg, text) => {
-        typingMessage(msg, text);
-        rerenderTree(state);
+      changeCurrent: (text) => {
+        typingMessage(store.getState().dialogs.currentMessage, text);
+        store._callSubscriber(store);
       }
     }
   },
   profile: {
     posts: {
-      create: (posts, author, avatarUrl, likes, shares) => {
-        addPost(posts, state.profile.currentPost.text, author, avatarUrl, likes, shares);
-        typingPost(state.profile.currentPost, "");
-        rerenderTree(state);
+      create: (author, avatarUrl, likes, shares) => {
+        // change calls
+        addPost(store.getState().profile.postsData, store.getState().profile.currentPost.text, author, avatarUrl, likes, shares);
+        typingPost(store.getState().profile.currentPost, "");
+        store._callSubscriber(store);
       },
-      changeCurrent: (post, text) => {
-        typingPost(post, text);
-        rerenderTree(state);
+      changeCurrent: (text) => {
+        typingPost(store.getState().profile.currentPost, text);
+        store._callSubscriber(store);
       }
     }
   },
   friends: null
 }
 
-export let state = {
+let state = {
   dialogs,
   profile,
   friends
 };
 
-export const subscribe = (observer) => {
-  rerenderTree = observer;
+let store = {
+  _state: state,
+  getState() {
+    return this._state;
+  },
+  setState(st) {
+    this._state = st;
+  },
+  _functions: functions,
+  getFunctions() {
+    return this._functions;
+  },
+  setFunctions(fns) {
+    this._functions = fns;
+  },
+  subscribe(observer) {
+    this._callSubscriber = observer;
+  },
+  _callSubscriber (store) {
+    return null;
+  },
+  dispatch(action) {
+    // action: {type, data}
+    //  action[action.type](data)
+  }
+
 }
 
-window.state = state;
-window.functions = functions;
+export default store;
+
+window.store = store;

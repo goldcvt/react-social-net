@@ -1,21 +1,21 @@
 import reportWebVitals from './reportWebVitals';
-import { state, subscribe } from './redux/state';
+import store from './redux/state';
 import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
 
-export const rerenderTree = (state) => ReactDOM.render(
+export const rerenderTree = (store) => ReactDOM.render(
     <React.StrictMode>
-      <App state={state} />
+      <App store={store} />
     </React.StrictMode>,
     document.getElementById('root')
   );
 
-rerenderTree(state);
+rerenderTree(store);
 
-subscribe(rerenderTree); // Yay! Observer pattern
+store.subscribe(rerenderTree); // Yay! Observer pattern
 
 
 // If you want to start measuring performance in your app, pass a function
