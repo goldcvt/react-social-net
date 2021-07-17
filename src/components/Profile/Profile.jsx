@@ -14,7 +14,7 @@ const Profile = (props) => {
     return (
         <div className={stylesheet.content}>
             <About user={userData} />
-            <ProfilePosts state={state} functions={props.functions.posts} />
+            <ProfilePosts state={state} dispatch={props.dispatch} />
         </div>
     );
 }

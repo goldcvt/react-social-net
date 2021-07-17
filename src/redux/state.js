@@ -100,39 +100,6 @@ let profile = {
   currentPost
 };
 
-
-let functions = {
-  dialogs: {
-    messages: {
-      create: () => {
-        addMessage(store.getState().dialogs.messageData, store.getState().dialogs.currentMessage.text);
-        typingMessage(store.getState().dialogs.currentMessage, "");
-        // This looks evil
-        store._callSubscriber(store);
-      },
-      changeCurrent: (text) => {
-        typingMessage(store.getState().dialogs.currentMessage, text);
-        store._callSubscriber(store);
-      }
-    }
-  },
-  profile: {
-    posts: {
-      create: (author, avatarUrl, likes, shares) => {
-        // change calls
-        addPost(store.getState().profile.postsData, store.getState().profile.currentPost.text, author, avatarUrl, likes, shares);
-        typingPost(store.getState().profile.currentPost, "");
-        store._callSubscriber(store);
-      },
-      changeCurrent: (text) => {
-        typingPost(store.getState().profile.currentPost, text);
-        store._callSubscriber(store);
-      }
-    }
-  },
-  friends: null
-}
-
 let state = {
   dialogs,
   profile,
@@ -147,24 +114,44 @@ let store = {
   setState(st) {
     this._state = st;
   },
-  _functions: functions,
-  getFunctions() {
-    return this._functions;
-  },
-  setFunctions(fns) {
-    this._functions = fns;
-  },
   subscribe(observer) {
     this._callSubscriber = observer;
   },
-  _callSubscriber (store) {
+  _callSubscriber(arg) {
     return null;
   },
   dispatch(action) {
-    // action: {type, data}
-    //  action[action.type](data)
-  }
+    // action: {type, payload}
+    //  action[action.type](payload)
+    switch(action.type) {
+      case "DIALOGS-CREATE-MESSAGE": 
+        addMessage(this.getState().dialogs.messageData, this.getState().dialogs.currentMessage.text);
+        typingMessage(this.getState().dialogs.currentMessage, "");
+        // This looks evil
+        this._callSubscriber(this);
+        break;
 
+      case "DIALOGS-UPDATE-CURRENT-MESSAGE":
+        typingMessage(this.getState().dialogs.currentMessage, ...action.payload);
+        // This looks evil
+        this._callSubscriber(this);
+        break
+
+      case "PROFILE-CREATE-POST": 
+        addPost(this.getState().profile.postsData, this.getState().profile.currentPost.text, ...action.payload);
+        typingPost(this.getState().profile.currentPost, "");
+        this._callSubscriber(this);
+        break
+
+      case "PROFILE-UPDATE-CURRENT-POST":
+        typingPost(this.getState().profile.currentPost, ...action.payload);
+        this._callSubscriber(this);
+        break
+
+      default: 
+        this._callSubscriber(this);
+    }
+  }
 }
 
 export default store;

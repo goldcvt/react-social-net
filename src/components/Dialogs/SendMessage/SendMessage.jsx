@@ -5,13 +5,17 @@ const SendMessage = (props) => {
     let textElement = React.createRef();
 
     let sendMessage = () => {
-        // let text = textElement.current.value;
-        props.functions.create();
+        let action = {type: "DIALOGS-CREATE-MESSAGE", payload: [""]}
+        props.dispatch(action);
         // props.functions.changeCurrent(props.state.currentMessage, "");
     }
 
     let typeChars = () => {
-        props.functions.changeCurrent(textElement.current.value);
+        let payload = [
+            textElement.current.value
+        ]
+        let action = {type: "DIALOGS-UPDATE-CURRENT-MESSAGE", payload: payload}
+        props.dispatch(action);
     }
 
     return (

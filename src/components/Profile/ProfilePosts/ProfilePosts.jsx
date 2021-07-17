@@ -15,7 +15,7 @@ const ProfilePosts = (props) => {
             <div className={stylesheet.header_container}>
                 <h1>My posts</h1>
             </div>
-            <CreatePost functions={props.functions} currentPost={props.state.currentPost} 
+            <CreatePost dispatch={props.dispatch} currentPost={props.state.currentPost} 
             posts={props.state.postsData} userData ={props.state.userData} />
             
             { posts }

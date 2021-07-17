@@ -7,25 +7,30 @@ const CreatePost = (props) => {
     let textElement = React.createRef();
 
     let addPost = () => {
-        // let text = props.currentPost.text; // We don't need it since we can post with currentPost value
-        props.functions.create(
+
+        let payload = [
             props.userData.name,
             props.userData.avatarUrl,
             0,
             0
-        );
-        // props.functions.changeCurrent(props.currentPost,  "");
+        ]
+
+        let action = { type: "PROFILE-CREATE-POST", payload: payload }
+
+        props.dispatch(action);
     }
 
     let currentPost = () => {
-        props.functions.changeCurrent(textElement.current.value);
+        let payload = [textElement.current.value]
+        let action = {type: "PROFILE-UPDATE-CURRENT-POST", payload: payload}
+        props.dispatch(action)
     }
 
     return (
         <div className={stylesheet.create_post}>
-            <textarea name="create_post" className={stylesheet.textspace} 
-            placeholder="Share something meaningful. Share something important" ref={textElement} value={props.currentPost.text} 
-            onChange={currentPost} />
+            <textarea name="create_post" className={stylesheet.textspace}
+                placeholder="Share something meaningful. Share something important" ref={textElement} value={props.currentPost.text}
+                onChange={currentPost} />
 
             <div className={stylesheet.buttons}>
                 <button className={stylesheet.add} onClick={addPost}>Post</button>
