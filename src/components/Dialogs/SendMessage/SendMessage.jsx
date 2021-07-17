@@ -1,11 +1,12 @@
 import React from 'react';
+import { createMessage, updateCurrentPost } from '../../../redux/actionCreators';
 import stylesheet from './SendMessage.module.css';
 
 const SendMessage = (props) => {
     let textElement = React.createRef();
 
     let sendMessage = () => {
-        let action = {type: "DIALOGS-CREATE-MESSAGE", payload: [""]}
+        let action = createMessage([""])
         props.dispatch(action);
         // props.functions.changeCurrent(props.state.currentMessage, "");
     }
@@ -14,7 +15,7 @@ const SendMessage = (props) => {
         let payload = [
             textElement.current.value
         ]
-        let action = {type: "DIALOGS-UPDATE-CURRENT-MESSAGE", payload: payload}
+        let action = updateCurrentPost(payload)
         props.dispatch(action);
     }
 

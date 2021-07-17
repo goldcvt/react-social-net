@@ -1,4 +1,5 @@
 import React from "react";
+import { createPost, updateCurrentPost } from "../../../../redux/actionCreators";
 import stylesheet from "./CreatePost.module.css"
 
 
@@ -7,7 +8,6 @@ const CreatePost = (props) => {
     let textElement = React.createRef();
 
     let addPost = () => {
-
         let payload = [
             props.userData.name,
             props.userData.avatarUrl,
@@ -15,14 +15,14 @@ const CreatePost = (props) => {
             0
         ]
 
-        let action = { type: "PROFILE-CREATE-POST", payload: payload }
+        let action = createPost(payload)
 
         props.dispatch(action);
     }
 
     let currentPost = () => {
         let payload = [textElement.current.value]
-        let action = {type: "PROFILE-UPDATE-CURRENT-POST", payload: payload}
+        let action = updateCurrentPost(payload)
         props.dispatch(action)
     }
 
