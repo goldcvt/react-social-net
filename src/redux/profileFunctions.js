@@ -1,4 +1,4 @@
-export let addPost = (posts, text, author, avatarUrl, likes, shares) => {
+export let addPost = (posts, text, author, avatarUrl, likes = 0, shares = 0) => {
     let newId = posts[posts.length - 1].id + 1;
     let post = {
         id: newId,

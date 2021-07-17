@@ -11,8 +11,6 @@ const CreatePost = (props) => {
         let payload = [
             props.userData.name,
             props.userData.avatarUrl,
-            0,
-            0
         ]
 
         let action = createPost(payload)
