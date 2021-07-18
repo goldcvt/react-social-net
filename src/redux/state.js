@@ -1,6 +1,6 @@
-import {addPost, like, typingPost} from './profileFunctions';
-import {addMessage, typingMessage} from './dialogFunctions';
-import { DIALOGS_CREATE_MESSAGE, DIALOGS_UPDATE_CURRENT_MESSAGE, PROFILE_CREATE_POST, PROFILE_LIKE_POST, PROFILE_UPDATE_CURRENT_POST } from './actionTypes';
+import dialogsReducer from './reducers/dialogsReducer';
+import profileReducer from './reducers/profileReducer';
+import friendsReducer from './reducers/friendsReducer';
 
 let postsData = [{
     id: 0,
@@ -126,39 +126,11 @@ let store = {
   dispatch(action) {
     // action: {type, payload}
     //  action[action.type](payload)
-    switch(action.type) {
-      case DIALOGS_CREATE_MESSAGE: 
-        addMessage(this.getState().dialogs.messageData, this.getState().dialogs.currentMessage.text);
-        typingMessage(this.getState().dialogs.currentMessage, "");
-        // This looks evil
-        this._callSubscriber(this);
-        break;
+    dialogsReducer(this.getState().dialogs, action)
+    profileReducer(this.getState().profile, action)
+    friendsReducer(this.getState().friends, action)  
 
-      case DIALOGS_UPDATE_CURRENT_MESSAGE:
-        typingMessage(this.getState().dialogs.currentMessage, ...action.payload);
-        // This looks evil
-        this._callSubscriber(this);
-        break
-
-      case PROFILE_CREATE_POST: 
-        addPost(this.getState().profile.postsData, this.getState().profile.currentPost.text, ...action.payload);
-        typingPost(this.getState().profile.currentPost, "");
-        this._callSubscriber(this);
-        break
-
-      case PROFILE_UPDATE_CURRENT_POST:
-        typingPost(this.getState().profile.currentPost, ...action.payload);
-        this._callSubscriber(this);
-        break
-      
-        case PROFILE_LIKE_POST:
-          like(...action.payload)
-          this._callSubscriber(this)
-          break
-
-      default: 
-        this._callSubscriber(this);
-    }
+    this._callSubscriber(this);
   }
 }
 
