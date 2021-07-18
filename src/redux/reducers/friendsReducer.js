@@ -1,6 +1,10 @@
 const friendsReducer = (state, action) => {
-
-    return state;
+    switch (action.type) {
+        case "abracadabra":
+            return state
+        default:
+            return state;
+    }
 }
 
 export default friendsReducer;
