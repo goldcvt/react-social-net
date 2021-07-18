@@ -7,7 +7,8 @@ const ProfilePosts = (props) => {
     // And! Instead of getting all the posts as an array we could do something like generator expr to fetch them from server
 
     let posts = props.state.postsData.map((post) =>
-        (<Post text={post.text} author={post.author} author_avatar={post.avatarUrl} likes={post.likes} shares={post.shares} />)
+        (<Post text={post.text} author={post.author} author_avatar={post.avatarUrl} 
+            likes={post.likes} shares={post.shares} dispatch={props.dispatch} />)
     );
 
     return (
