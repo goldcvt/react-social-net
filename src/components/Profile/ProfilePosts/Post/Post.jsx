@@ -1,22 +1,30 @@
+import React from 'react';
+import { likePost } from '../../../../redux/actionCreators';
 import stylesheet from './Post.module.css';
 
 const Post = (props) => {
+    let like = () => {
+        let action = likePost([props.post])
+        props.dispatch(action)
+    }
+
     return (
         <div className={stylesheet.post}>
             <div className={stylesheet.post_content}>
                 <div className={stylesheet.author}>
-                    <img src={props.author_avatar} alt="Author's Avatar" className={stylesheet.avatar} />
+                    <img src={props.post.avatarUrl} alt="Author's Avatar" className={stylesheet.avatar} />
                     <div className={stylesheet.name}>
                         <p>
-                            {props.author}
+                            {props.post.author}
                         </p>
                     </div>
                 </div>
-                <p className={stylesheet.post_text}>{props.text}</p>
+                <p className={stylesheet.post_text}>{props.post.text}</p>
             </div>
             <div className={stylesheet.nav}>
-                <span>Like {props.likes}</span>
-                <span>Share {props.shares}</span>
+                {/*add like coloring*/}
+                <span onClick={like}>Like {props.post.likes}</span>
+                <span>Share {props.post.shares}</span>
             </div>
         </div>
     );
