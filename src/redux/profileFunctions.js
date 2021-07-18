@@ -14,3 +14,8 @@ export let addPost = (posts, text, author, avatarUrl, likes = 0, shares = 0) => 
 export let typingPost = (curPost, text) => {
     curPost.text = text;
 }
+
+export let like = (post) => {
+    if (post.liked) {post.likes += 1}
+    else {post.likes -=1}
+}
