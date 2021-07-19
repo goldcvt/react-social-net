@@ -1,5 +1,5 @@
 import React from 'react';
-import { createMessage, updateCurrentPost } from '../../../redux/actionCreators';
+import { createMessage, updateCurrentMessage } from '../../../redux/actionCreators';
 import stylesheet from './SendMessage.module.css';
 
 const SendMessage = (props) => {
@@ -15,7 +15,7 @@ const SendMessage = (props) => {
         let payload = [
             textElement.current.value
         ]
-        let action = updateCurrentPost(payload)
+        let action = updateCurrentMessage(payload)
         props.dispatch(action);
     }
 
