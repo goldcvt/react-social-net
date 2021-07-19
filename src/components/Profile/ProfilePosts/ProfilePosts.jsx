@@ -1,13 +1,13 @@
 import stylesheet from "./ProfilePosts.module.css"
-import CreatePost from "./CreatePost/CreatePost";
-import Post from "./Post/Post"
+import CreatePostContainer from "./CreatePost/CreatePostContainer"
+import PostContainer from "./Post/PostContainer"
 
 const ProfilePosts = (props) => {
     // let's imagine posts came from props. And oh! author should be replaced with authorId
     // And! Instead of getting all the posts as an array we could do something like generator expr to fetch them from server
 
     let posts = props.state.postsData.map((post) =>
-        (<Post post={post} dispatch={props.dispatch} />)
+        (<PostContainer state={post} dispatch={props.dispatch} />)
     );
 
     return (
@@ -15,8 +15,7 @@ const ProfilePosts = (props) => {
             <div className={stylesheet.header_container}>
                 <h1>My posts</h1>
             </div>
-            <CreatePost dispatch={props.dispatch} currentPost={props.state.currentPost}
-                posts={props.state.postsData} userData={props.state.userData} />
+            <CreatePostContainer dispatch={props.dispatch} state={props.state} />
 
             <div className={stylesheet.posts}>
                 {posts}

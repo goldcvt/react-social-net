@@ -1,33 +1,28 @@
-import React from "react";
-import { createPost, updateCurrentPost } from "../../../../redux/actionCreators";
 import stylesheet from "./CreatePost.module.css"
 
 
 
 const CreatePost = (props) => {
-    let textElement = React.createRef();
+    // let textElement = React.createRef();
 
     let addPost = () => {
         let payload = [
             props.userData.name,
             props.userData.avatarUrl,
         ]
-
-        let action = createPost(payload)
-
-        props.dispatch(action);
+        props.addPost(payload);
     }
 
-    let currentPost = () => {
-        let payload = [textElement.current.value]
-        let action = updateCurrentPost(payload)
-        props.dispatch(action)
+    let currentPost = (e) => {
+        let text = e.target.value;
+        props.typeToPost(text)
+        
     }
 
     return (
         <div className={stylesheet.create_post}>
             <textarea name="create_post" className={stylesheet.textspace}
-                placeholder="Share something meaningful. Share something important" ref={textElement} value={props.currentPost.text}
+                placeholder="Share something meaningful. Share something important" value={props.currentPost.text}
                 onChange={currentPost} />
 
             <div className={stylesheet.buttons}>
