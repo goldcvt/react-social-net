@@ -1,31 +1,19 @@
-import React from 'react';
-import { createMessage, updateCurrentMessage } from '../../../redux/actionCreators';
 import stylesheet from './SendMessage.module.css';
 
 const SendMessage = (props) => {
-    let textElement = React.createRef();
 
-    let sendMessage = () => {
-        let action = createMessage([""])
-        props.dispatch(action);
-        // props.functions.changeCurrent(props.state.currentMessage, "");
-    }
-
-    let typeChars = () => {
-        let payload = [
-            textElement.current.value
-        ]
-        let action = updateCurrentMessage(payload)
-        props.dispatch(action);
+    let typeChars = (e) => {
+        let text = e.target.value;
+        props.typeMessage(text)
     }
 
     return (
         <div className={stylesheet.container}>
             <div className={stylesheet.field}>
-                <input type="text" ref={textElement} value={props.state.currentMessage.text} onChange={typeChars} />
+                <input type="text" value={props.currentMessage.text} onChange={typeChars} />
             </div>
             <div className={stylesheet.button_wrapper}>
-                <button className={stylesheet.button} onClick={sendMessage} >
+                <button className={stylesheet.button} onClick={props.sendMessage} >
                     Send
                 </button>
             </div>

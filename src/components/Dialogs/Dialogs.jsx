@@ -1,13 +1,11 @@
 import stylesheet from './Dialogs.module.css';
 import Message from './Message/Message';
 import DialogItem from './DialogItem/DialogItem';
-import SendMessage from './SendMessage/SendMessage';
+import SendMessageContainer from './SendMessage/SendMessageContainer';
 
 const Dialogs = (props) => {
     let messages = props.state.messageData.map(message => <Message message={message.text} toMe={message.toMe} />);
     let dialogs = props.state.dialogItemsData.map(user => <DialogItem user={user} />);
-    let messageData = props.state.messageData;
-    let currentMessage = props.state.currentMessage;
 
     return (
         <div className={stylesheet.dialogs_page}>
@@ -21,7 +19,7 @@ const Dialogs = (props) => {
                 smart-ass routing component of our own */}
                 
                 {messages}
-                <SendMessage state={{messageData, currentMessage}} dispatch={props.dispatch} />
+                <SendMessageContainer state={props.state} dispatch={props.dispatch} />
             </div>
         </div>
     );
