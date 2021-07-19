@@ -4,6 +4,7 @@ import friendsReducer from "./reducers/friendsReducer";
 import profileReducer from "./reducers/profileReducer";
 
 let rootReducer = combineReducers({
+    // it's like a state object (these keys...)
     profile: profileReducer,
     dialogs: dialogsReducer,
     friends: friendsReducer

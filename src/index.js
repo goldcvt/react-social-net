@@ -15,6 +15,7 @@ export const rerenderTree = (store) => ReactDOM.render(
 
 rerenderTree(store);
 
+// need an anonymous function so that redux will call rerenderTree with store arg when it notifies subs
 store.subscribe(() => {
   rerenderTree(store)
 }); // Yay! Observer pattern
