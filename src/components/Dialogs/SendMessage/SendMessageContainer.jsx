@@ -2,6 +2,7 @@ import { createMessage, updateCurrentMessage } from '../../../redux/actionCreato
 import SendMessage from './SendMessage'
 
 const SendMessageContainer = (props) => {
+    debugger;
     let sendMessage = () => {
         let action = createMessage([""])
         props.dispatch(action);

@@ -1,7 +1,7 @@
 import stylesheet from './SendMessage.module.css';
 
 const SendMessage = (props) => {
-
+    debugger;
     let typeChars = (e) => {
         let text = e.target.value;
         props.typeMessage(text)
