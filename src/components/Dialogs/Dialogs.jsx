@@ -2,6 +2,7 @@ import stylesheet from './Dialogs.module.css';
 import Message from './Message/Message';
 import DialogItem from './DialogItem/DialogItem';
 import SendMessageContainer from './SendMessage/SendMessageContainer';
+import { ProviderComponent } from '../../contextProvider';
 
 const Dialogs = (props) => {
     let messages = props.state.messageData.map(message => <Message message={message.text} toMe={message.toMe} />);
@@ -19,7 +20,15 @@ const Dialogs = (props) => {
                 smart-ass routing component of our own */}
                 
                 {messages}
-                <SendMessageContainer state={props.state} dispatch={props.dispatch} />
+                <ProviderComponent.Consumer>
+                    {
+                        (value) => {
+                            return (
+                                <SendMessageContainer state={value.getState()} dispatch={value.dispatch} />
+                            )
+                        }
+                    }
+                </ProviderComponent.Consumer>
             </div>
         </div>
     );
