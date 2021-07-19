@@ -1,5 +1,5 @@
 import reportWebVitals from './reportWebVitals';
-import store from './redux/state';
+import store from './redux/reduxStore';
 import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -15,7 +15,9 @@ export const rerenderTree = (store) => ReactDOM.render(
 
 rerenderTree(store);
 
-store.subscribe(rerenderTree); // Yay! Observer pattern
+store.subscribe(() => {
+  rerenderTree(store)
+}); // Yay! Observer pattern
 
 
 // If you want to start measuring performance in your app, pass a function
