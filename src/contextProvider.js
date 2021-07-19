@@ -4,7 +4,7 @@ const StoreProvider = React.createContext(null)
 
 export default StoreProvider
 
-export const Provider = (props) => {
+export const ProviderComponent = (props) => {
     return (
         <StoreProvider.Provider value={props}>
             {props.children}
