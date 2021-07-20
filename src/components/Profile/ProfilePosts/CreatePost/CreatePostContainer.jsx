@@ -7,17 +7,15 @@ import CreatePost from "./CreatePost";
 const mapStateToProps = (state) => {
     return {
         currentPost: state.profile.currentPost,
-        posts: state.profile.postsData, 
         userData: state.profile.userData
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    debugger;
     return {
         addPost: (payload) => {
             let action = createPost(payload)
-            dispatch(action);
+            dispatch(action)
         },
         typeToPost: (text) => {
             let payload = [text]
