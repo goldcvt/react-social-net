@@ -1,3 +1,4 @@
+import deepCopy from "../../utils/deepCopy";
 import { DIALOGS_CREATE_MESSAGE, DIALOGS_UPDATE_CURRENT_MESSAGE } from "../actionTypes"
 import { addMessage, typingMessage } from "../dialogFunctions"
 
@@ -47,14 +48,26 @@ let inititalState = {
 
 const dialogsReducer = (state = inititalState, action) => {
     switch (action.type) {
-        case DIALOGS_CREATE_MESSAGE:
-            addMessage(state.messageData, state.currentMessage.text)
-            typingMessage(state.currentMessage, "")
-            return state
+        case DIALOGS_CREATE_MESSAGE: {
+          let newState = {
+            ...state
+          }
+          newState.currentMessage = deepCopy(state.currentMessage)
+          newState.messageData = deepCopy(state.messageData)
+          addMessage(newState.messageData, newState.currentMessage.text)
+          typingMessage(newState.currentMessage, "")
+          return newState
+        }
 
         case DIALOGS_UPDATE_CURRENT_MESSAGE:
-            typingMessage(state.currentMessage, ...action.payload)
-            return state
+          {
+            let newState = {
+              ...state
+            }
+            newState.currentMessage = deepCopy(state.currentMessage)
+            typingMessage(newState.currentMessage, ...action.payload)
+            return newState
+          }
 
         default:
             return state
