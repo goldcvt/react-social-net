@@ -9,7 +9,6 @@ let postsData = [{
     avatarUrl: 'https://i.ytimg.com/vi/BHPPLdWeGiw/maxresdefault.jpg',
     likes: 312,
     shares: 12,
-    isLiked: false
   },
   {
     id: 1,
@@ -18,7 +17,6 @@ let postsData = [{
     avatarUrl: 'https://i.ytimg.com/vi/BHPPLdWeGiw/maxresdefault.jpg',
     likes: 228,
     shares: 124,
-    isLiked: false
   }
 ];
 
