@@ -4,8 +4,8 @@ import DialogItem from './DialogItem/DialogItem';
 import SendMessageContainer from './SendMessage/SendMessageContainer';
 
 const Dialogs = (props) => {
-    let messages = props.state.messageData.map(message => <Message message={message.text} toMe={message.toMe} />);
-    let dialogs = props.state.dialogItemsData.map(user => <DialogItem user={user} />);
+    let messages = props.messageData.map(message => <Message message={message.text} toMe={message.toMe} />);
+    let dialogs = props.dialogItemsData.map(user => <DialogItem user={user} />);
 
     return (
         <div className={stylesheet.dialogs_page}>

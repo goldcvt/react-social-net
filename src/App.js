@@ -1,5 +1,4 @@
 import './App.css';
-import Dialogs from './components/Dialogs/Dialogs';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
@@ -9,6 +8,7 @@ import Feed from './components/Feed/Feed';
 import Settings from './components/Settings/Settings';
 import { Provider } from 'react-redux';
 import store from './redux/reduxStore';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 const App = (props) => {
 
@@ -21,8 +21,7 @@ const App = (props) => {
           <div className="app-wrapper-content">
             <Route render={() => <Profile state={props.store.getState().profile}
               dispatch={props.store.dispatch.bind(props.store)} />} path="/profile" />
-            <Route render={() => <Dialogs state={props.store.getState().dialogs}
-              dispatch={props.store.dispatch.bind(props.store)} />} path="/dialogs" />
+            <Route render={() => <DialogsContainer />} path="/dialogs" />
             <Route component={Music} path="/music" />
             <Route component={Feed} path="/feed" />
             <Route component={Settings} path="/settings" />
