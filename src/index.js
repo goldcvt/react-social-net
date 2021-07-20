@@ -6,19 +6,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 
-export const rerenderTree = (store) => ReactDOM.render(
+ReactDOM.render(
     <React.StrictMode>
       <App store={store} />
     </React.StrictMode>,
     document.getElementById('root')
-  );
-
-rerenderTree(store);
-
-// need an anonymous function so that redux will call rerenderTree with store arg when it notifies subs
-store.subscribe(() => {
-  rerenderTree(store)
-}); // Yay! Observer pattern
+);
 
 
 // If you want to start measuring performance in your app, pass a function
