@@ -3,7 +3,7 @@ import Post from './Post';
 
 const PostContainer = (props) => {
     let like = () => {
-        let action = likePost([props.state])
+        let action = likePost([props.state.id])
         props.dispatch(action)
     }
 

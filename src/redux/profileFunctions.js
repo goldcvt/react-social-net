@@ -15,7 +15,8 @@ export let typingPost = (curPost, text) => {
     curPost.text = text;
 }
 
-export let like = (post) => {
+export let like = (posts, postId) => {
+    let post = posts[postId]
     if (!post.liked) {
         post.likes += 1
         post.liked = true
