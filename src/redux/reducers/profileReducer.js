@@ -1,3 +1,4 @@
+import deepCopy from "../../utils/deepCopy";
 import { PROFILE_CREATE_POST, PROFILE_LIKE_POST, PROFILE_UPDATE_CURRENT_POST } from "../actionTypes";
 import { addPost, like, typingPost } from "../profileFunctions";
 
@@ -44,17 +45,35 @@ let inititalState = {
 const profileReducer = (state = inititalState, action) => {
     switch (action.type) {
         case PROFILE_CREATE_POST:
-            addPost(state.postsData, state.currentPost.text, ...action.payload);
-            typingPost(state.currentPost, "");
-            return state
+          {
+            let newState = {...state}
+            newState.currentPost = deepCopy(state.currentPost)
+            newState.postsData = deepCopy(state.postsData)
+            addPost(newState.postsData, newState.currentPost.text, ...action.payload);
+            typingPost(newState.currentPost, "");
+            return newState
+          }
 
         case PROFILE_UPDATE_CURRENT_POST:
-            typingPost(state.currentPost, ...action.payload);
-            return state
+            {
+              let newState = {
+                ...state
+              };
+              newState.currentPost = deepCopy(state.currentPost)
+              typingPost(newState.currentPost, ...action.payload);
+              return newState
+            }
 
         case PROFILE_LIKE_POST:
-            like(...action.payload)
-            return state
+            {
+              // hacky way, tbh
+              
+              let newState = {...state}
+              newState.postsData = deepCopy(state.postsData)
+              like(newState.postsData, ...action.payload)
+              
+              return newState
+            }
 
         default:
             return state
