@@ -10,4 +10,5 @@ const PostContainer = (props) => {
     return <Post post={props.state} like={like} />
 }
 
+
 export default PostContainer;

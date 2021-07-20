@@ -1,20 +1,27 @@
+import { connect } from 'react-redux';
 import { createMessage, updateCurrentMessage } from '../../../redux/actionCreators';
 import SendMessage from './SendMessage'
 
-const SendMessageContainer = (props) => {
-    let sendMessage = () => {
-        let action = createMessage([""])
-        props.dispatch(action);
-        // props.functions.changeCurrent(props.state.currentMessage, "");
-    }
 
-    let typeChars = (text) => {
-        let payload = [text]
-        let action = updateCurrentMessage(payload)
-        props.dispatch(action);
+const mapStateToProps = (state) => {
+    return {
+        currentMessage: state.dialogs.currentMessage
     }
-
-    return <SendMessage typeMessage={typeChars} currentMessage={props.state.currentMessage} sendMessage={sendMessage} />
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        typeMessage: (text) => {
+            let payload = [text]
+            let action = updateCurrentMessage(payload)
+            dispatch(action);
+        },
+        sendMessage: () => {
+            let action = createMessage([""])
+            dispatch(action);
+        }
+    }
+}
+const SendMessageContainer = connect(mapStateToProps, mapDispatchToProps)(SendMessage)
 
 export default SendMessageContainer;

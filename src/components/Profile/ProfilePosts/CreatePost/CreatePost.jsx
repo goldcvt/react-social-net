@@ -3,8 +3,6 @@ import stylesheet from "./CreatePost.module.css"
 
 
 const CreatePost = (props) => {
-    // let textElement = React.createRef();
-
     let addPost = () => {
         let payload = [
             props.userData.name,

@@ -19,7 +19,7 @@ const Dialogs = (props) => {
                 smart-ass routing component of our own */}
                 
                 {messages}
-                <SendMessageContainer state={props.state} dispatch={props.dispatch} />
+                <SendMessageContainer />
             </div>
         </div>
     );

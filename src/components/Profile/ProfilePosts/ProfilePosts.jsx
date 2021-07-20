@@ -15,7 +15,7 @@ const ProfilePosts = (props) => {
             <div className={stylesheet.header_container}>
                 <h1>My posts</h1>
             </div>
-            <CreatePostContainer dispatch={props.dispatch} state={props.state} />
+            <CreatePostContainer />
 
             <div className={stylesheet.posts}>
                 {posts}

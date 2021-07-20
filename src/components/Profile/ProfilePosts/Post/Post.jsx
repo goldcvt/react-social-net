@@ -1,7 +1,7 @@
 import stylesheet from './Post.module.css';
 
 const Post = (props) => {
-
+    
     return (
         <div className={stylesheet.post}>
             <div className={stylesheet.post_content}>

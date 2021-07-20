@@ -1,27 +1,32 @@
 
+import { connect } from "react-redux";
 import { createPost, updateCurrentPost } from "../../../../redux/actionCreators";
 import CreatePost from "./CreatePost";
 
 
-
-const CreatePostContainer = (props) => {
-
-    let addPost = (payload) => {
-
-        let action = createPost(payload)
-
-        props.dispatch(action);
+const mapStateToProps = (state) => {
+    return {
+        currentPost: state.profile.currentPost,
+        posts: state.profile.postsData, 
+        userData: state.profile.userData
     }
-
-    let typeToPost = (text) => {
-        let payload = [text]
-        let action = updateCurrentPost(payload)
-        props.dispatch(action)
-    }
-
-    // watch for upper node of tree
-    return <CreatePost typeToPost={typeToPost} addPost={addPost} currentPost={props.state.currentPost}
-    posts={props.state.postsData} userData={props.state.userData} />
 }
+
+const mapDispatchToProps = (dispatch) => {
+    debugger;
+    return {
+        addPost: (payload) => {
+            let action = createPost(payload)
+            dispatch(action);
+        },
+        typeToPost: (text) => {
+            let payload = [text]
+            let action = updateCurrentPost(payload)
+            dispatch(action)
+        }
+
+    }
+}
+const CreatePostContainer = connect(mapStateToProps, mapDispatchToProps)(CreatePost)
 
 export default CreatePostContainer;
