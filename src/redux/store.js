@@ -1,6 +1,6 @@
 import dialogsReducer from './reducers/dialogsReducer';
 import profileReducer from './reducers/profileReducer';
-import friendsReducer from './reducers/friendsReducer';
+import usersReducer from './reducers/usersReducer';
 
 let postsData = [{
     id: 0,
@@ -74,7 +74,7 @@ let currentMessage = {
   text: ""
 }
 
-let friends = [{
+let users = [{
     userId: 1,
     name: "Mary J Blige",
     avatarUrl: "https://bstars.ru/media/djcatalog2/images/item/20/mary-j-blige.1_f.webp"
@@ -106,7 +106,7 @@ let profile = {
 let state = {
   dialogs,
   profile,
-  friends
+  users
 };
 
 let store = {
@@ -128,7 +128,7 @@ let store = {
     //  action[action.type](payload)
     dialogsReducer(this.getState().dialogs, action)
     profileReducer(this.getState().profile, action)
-    friendsReducer(this.getState().friends, action)  
+    usersReducer(this.getState().users, action)  
 
     this._callSubscriber(this);
   }
