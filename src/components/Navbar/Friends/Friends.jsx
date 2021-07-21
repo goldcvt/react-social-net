@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import stylesheet from "./Friends.module.css";
 import Friend from "./Friend/Friend";
 
