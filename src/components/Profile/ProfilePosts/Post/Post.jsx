@@ -9,7 +9,7 @@ const Post = (props) => {
                     <img src={props.post.avatarUrl} alt="Author's Avatar" className={stylesheet.avatar} />
                     <div className={stylesheet.name}>
                         <p>
-                            {props.post.author}
+                            {props.post.author.name}
                         </p>
                     </div>
                 </div>
