@@ -11,7 +11,7 @@ import store from './redux/reduxStore';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 const App = (props) => {
-
+// TODO make uniform user obj in all of reducers. So that postsData use it, for example
   return (
     <BrowserRouter>
       <Provider store={store}>
