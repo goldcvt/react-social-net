@@ -1,0 +1,24 @@
+.friend {
+    display: flex;
+    width: sum(100%, -4px);
+    border: 2px solid black;
+    padding: 10px 0;
+
+    // use vars pleeeaasssseeeee
+    .avatar_wrapper {
+        margin-right: 15px;
+        img {
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+        }
+    }
+    .info_wrapper {
+        .name_wrapper {
+            font-size: 15px;
+
+        }
+        padding-top: 2px;
+        height: 100%;
+    }
+}
