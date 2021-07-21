@@ -1,0 +1,42 @@
+.userscontainer {
+    width: 100%;
+    display: grid;
+    grid-template-areas: "users users users filters";
+    grid-gap: 20px;
+    height: 100%;
+}
+
+.userlist {
+    background-color: rgb(102, 102, 182);
+    height: 100%;
+    display: flex;
+    grid-area: users;
+    flex-direction: column;
+    .searchbar {
+        padding-bottom: 10px;
+        margin-bottom: 2px;
+        padding-top: 5px;
+        border-bottom: 1px solid #ced2d6;
+
+        // Really hacky way, tbh. Something's wrong here, mos def
+        // it's better to use scss vars
+        :first-child {
+            border-radius: 5px;
+        }
+    }
+
+    .friends_title {
+        h2 {
+            border-bottom: 1px solid #ced2d6;
+        }
+        padding-top: 0px;
+    }
+}
+
+.filters {
+    height: 100%;
+    display: flex;
+    grid-area: filters;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
