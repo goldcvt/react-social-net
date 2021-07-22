@@ -1,9 +1,10 @@
 import Search from '../Utils/Search/Search'
 import UserItem from './UserItem/UserItem'
-import { userscontainer, userlist, searchbar, filters, friends_title } from './Users.module.scss'
+import { allUsers_title, userscontainer, userlist, searchbar, filters, friends_title } from './Users.module.scss'
 
 const Users = (props) => {
-    let friends = props.users.filter(user => user.isFriend === true).map(user => <UserItem user={user} />)
+    let friends = props.users.filter(user => user.isFriend === true).map(user => <UserItem user={user} dispatch={props.dispatch} />)
+    let notYetFriends = props.users.filter(user => user.isFriend !== true).map(user => <UserItem user={user} dispatch={props.dispatch} />)
     return (
         <div className={userscontainer}>
             <div className={userlist}>
@@ -14,6 +15,12 @@ const Users = (props) => {
                     <h2>Friends</h2>
                 </div>
                 {friends}
+                <div className={allUsers_title}>
+                    <h2>
+                        Not Friends Yet
+                    </h2>
+                </div>
+                {notYetFriends}
             </div>
             <div className={filters}>
                 <h1>Filters</h1>
