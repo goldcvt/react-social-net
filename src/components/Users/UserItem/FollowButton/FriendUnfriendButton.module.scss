@@ -1,0 +1,15 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    height: 40px;
+    width: 100px;
+    .unfriend {
+        color: blueviolet;
+    }
+
+    .befriend {
+        color: brown;
+    }
+}
