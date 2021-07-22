@@ -1,3 +1,6 @@
+import deepCopy from "../../utils/deepCopy"
+import { FRIENDS_TOGGLE_FRIENDSHIP } from "../actionTypes"
+
 class User {
   constructor(userId, name, avatarUrl, wallpaperUrl, description) {
     this.userId = userId
@@ -37,11 +40,16 @@ let inititalState = [
 ]
 
 const usersReducer = (state = inititalState, action) => {
+    let newState = deepCopy(state)
     switch (action.type) {
-        case "abracadabra":
-            return state
+        case FRIENDS_TOGGLE_FRIENDSHIP:
+            debugger;
+            let arrayUserId = action.payload[1] - 1
+            newState[arrayUserId].isFriend = (!action.payload[0])
+            return newState
+
         default:
-            return state;
+            return newState;
     }
 }
 
