@@ -1,7 +1,7 @@
 .friend {
     display: flex;
     width: sum(100%, -4px);
-    border: 2px solid black;
+    border-bottom: 1px solid rgb(94, 91, 91);
     padding: 10px 0;
 
     // use vars pleeeaasssseeeee
@@ -14,11 +14,30 @@
         }
     }
     .info_wrapper {
-        .name_wrapper {
-            font-size: 15px;
-
-        }
         padding-top: 2px;
         height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-areas: "uname controls controls";
+        padding-right: 20px;
+
+        .name_wrapper {
+            font-size: 15px;
+            grid-area: uname;
+        }
+        .controls_wrapper {
+            display: flex;
+            flex-direction: row;
+            grid-area: controls;
+
+            justify-content: flex-end;
+            align-items: flex-end;
+
+            .controls_box {
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: flex-end;
+            }
+        }
     }
 }
