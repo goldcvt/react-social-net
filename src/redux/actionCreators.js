@@ -3,7 +3,8 @@ import {
     DIALOGS_UPDATE_CURRENT_MESSAGE,
     PROFILE_CREATE_POST,
     PROFILE_LIKE_POST,
-    PROFILE_UPDATE_CURRENT_POST
+    PROFILE_UPDATE_CURRENT_POST,
+    FRIENDS_TOGGLE_FRIENDSHIP
 } from "./actionTypes"
 
 
@@ -31,5 +32,10 @@ export const updateCurrentPost = (payload) => ({
 
 export const likePost = (payload) => ({
     type: PROFILE_LIKE_POST,
+    payload: payload
+})
+
+export const toggleFriendship = (payload) => ({
+    type: FRIENDS_TOGGLE_FRIENDSHIP,
     payload: payload
 })
