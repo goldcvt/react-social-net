@@ -3,8 +3,8 @@ import UserItem from './UserItem/UserItem'
 import { allUsers_title, userscontainer, userlist, searchbar, filters, friends_title } from './Users.module.scss'
 
 const Users = (props) => {
-    let friends = props.users.filter(user => user.isFriend === true).map(user => <UserItem user={user} dispatch={props.dispatch} />)
-    let notYetFriends = props.users.filter(user => user.isFriend !== true).map(user => <UserItem user={user} dispatch={props.dispatch} />)
+    let friends = props.users.filter(user => user.isFriend === true).map(user => <UserItem user={user} toggleFriendship={props.toggleFriendship} />)
+    let notYetFriends = props.users.filter(user => user.isFriend !== true).map(user => <UserItem user={user} toggleFriendship={props.toggleFriendship} />)
     return (
         <div className={userscontainer}>
             <div className={userlist}>

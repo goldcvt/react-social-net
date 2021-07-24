@@ -43,8 +43,8 @@ const usersReducer = (state = inititalState, action) => {
     let newState = deepCopy(state)
     switch (action.type) {
         case USERS_TOGGLE_FRIENDSHIP:
-            let arrayUserId = action.payload[1] - 1
-            newState[arrayUserId].isFriend = (!action.payload[0])
+            let arrayUserId = action.payload[0] - 1
+            newState[arrayUserId].isFriend = !(state[arrayUserId].isFriend)
             return newState
 
           case USERS_FETCH_USERS:

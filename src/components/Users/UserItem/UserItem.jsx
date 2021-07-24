@@ -14,7 +14,7 @@ const UserItem = (props) => {
                 <div className={controls_wrapper}>
                     {/* <ButtonContainer component={FriendUnfriendButton} info={props.user.isFriend} /> */}
                     <div className={controls_box}>
-                        <FriendUnfriendButton userId = {props.user.userId} isFriend={props.user.isFriend} dispatch={props.dispatch} />
+                        <FriendUnfriendButton userId = {props.user.userId} isFriend={props.user.isFriend} toggleFriendship={props.toggleFriendship} />
                         <button>Send Message</button>
                     </div>
                 </div>

@@ -3,8 +3,8 @@ import { button, befriend, unfriend } from './FriendUnfriendButton.module.scss'
 
 const FriendUnfriendButton = (props) => {
     const toggle = () => {
-        let action = toggleFriendship([props.isFriend, props.userId])
-        props.dispatch(action)
+        let payload = [props.userId]
+        props.toggleFriendship(payload)
     }
     // TODO it's better to give a button a state and toggle it, probably
     let text = ""
