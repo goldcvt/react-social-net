@@ -7,15 +7,8 @@ const FriendUnfriendButton = (props) => {
         props.toggleFriendship(payload)
     }
     // TODO it's better to give a button a state and toggle it, probably
-    let text = ""
-    let buttonClass = null
-    if (props.isFriend) {
-        text = "Unfriend"
-        buttonClass = unfriend
-    } else {
-        text  = "Befriend"
-        buttonClass = befriend
-    }
+    let text = props.isFriend ? "Unfriend" : "Befriend"
+    let buttonClass = props.isFriend ? unfriend : befriend
     return <button className={`${button.buttonClass} ${button}`} onClick={toggle} >{text}</button>
 
 }
