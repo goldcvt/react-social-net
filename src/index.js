@@ -6,6 +6,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 
+// initial fetch of data should happen here via dispatches, see
+// https://stackoverflow.com/questions/36784139/where-do-i-fetch-initial-data-from-server-in-a-react-redux-app
+
 ReactDOM.render(
     <React.StrictMode>
       <App store={store} />
