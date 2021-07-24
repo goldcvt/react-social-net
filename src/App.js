@@ -18,7 +18,7 @@ const App = (props) => {
       <Provider store={store}>
         <div className='app-wrapper'>
           <Header />
-          <Navbar state={props.store.getState().users} />
+          <Navbar />
           <div className="app-wrapper-content">
             <Route render={() => <Profile state={props.store.getState().profile}
               dispatch={props.store.dispatch.bind(props.store)} />} path="/profile" />

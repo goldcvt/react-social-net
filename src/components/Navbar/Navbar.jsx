@@ -1,6 +1,6 @@
 import stylesheet from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
-import Friends from './Friends/Friends';
+import NavbarFriendsContainer from './Friends/NavbarFriendsContainer';
 
 const Navbar = (props) => {
     return (
@@ -11,7 +11,7 @@ const Navbar = (props) => {
             <div className={stylesheet.item}><NavLink to="/users" activeClassName={stylesheet.active}>Users</NavLink></div>
             <div className={stylesheet.item}><NavLink to="/music" activeClassName={stylesheet.active} >Music</NavLink></div>
             <div className={stylesheet.item}><NavLink to="/settings" activeClassName={stylesheet.active} >Settings</NavLink></div>
-            <Friends state={props.state}/>
+            <NavbarFriendsContainer />
         </nav>
     )
 }
