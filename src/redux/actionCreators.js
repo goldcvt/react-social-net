@@ -4,7 +4,8 @@ import {
     PROFILE_CREATE_POST,
     PROFILE_LIKE_POST,
     PROFILE_UPDATE_CURRENT_POST,
-    FRIENDS_TOGGLE_FRIENDSHIP
+    USERS_FETCH_USERS,
+    USERS_TOGGLE_FRIENDSHIP
 } from "./actionTypes"
 
 
@@ -19,6 +20,7 @@ export const updateCurrentMessage = (payload) => ({
 })
 
 
+//___________________________________________________________________
 
 export const createPost = (payload) => ({
     type: PROFILE_CREATE_POST,
@@ -35,7 +37,14 @@ export const likePost = (payload) => ({
     payload: payload
 })
 
+//____________________________________________________________________
+
 export const toggleFriendship = (payload) => ({
-    type: FRIENDS_TOGGLE_FRIENDSHIP,
+    type: USERS_TOGGLE_FRIENDSHIP,
+    payload: payload
+})
+
+export const fetchUsers = (payload) => ({
+    type: USERS_FETCH_USERS,
     payload: payload
 })
