@@ -1,9 +1,10 @@
 import deepCopy from "../../utils/deepCopy"
 import { USERS_FETCH_USERS, USERS_TOGGLE_FRIENDSHIP } from "../actionTypes"
+import * as axios from 'axios'
 
 class User {
-  constructor(userId, name, avatarUrl, wallpaperUrl, description) {
-    this.userId = userId
+  constructor(id, name, avatarUrl, wallpaperUrl, description) {
+    this.id = id
     this.name = name
     this.avatarUrl = avatarUrl
     this.wallpaperUrl = wallpaperUrl
@@ -12,44 +13,56 @@ class User {
   }
 }
 
-let inititalState = [
-  {
-    userId: 1,
-    name: "Mary J Blige",
-    avatarUrl: "https://bstars.ru/media/djcatalog2/images/item/20/mary-j-blige.1_f.webp",
-    wallpaperUrl: "https://wallpaperaccess.com/full/1760835.jpg",
-    description: `Didn't smoke any dope w/ Yanix`,
-    isFriend: true
-  },
-  {
-    userId: 2,
-    name: "John Legend",
-    avatarUrl: "https://cloudfront-us-east-1.images.arcpublishing.com/pmn/DR2KSCTTKNCMBGUZCCFOCQZTV4.jpg",
-    wallpaperUrl: "https://wallpaperaccess.com/full/1760835.jpg",
-    description: `Singin' and believin' in love`,
-    isFriend: false
-  },
-  {
-    userId: 3,
-    name: "Kanye West",
-    avatarUrl: "https://www.film.ru/sites/default/files/styles/thumb_260x320/public/persones/_imported/1577190.jpg",
-    wallpaperUrl: "https://wallpaperaccess.com/full/1760835.jpg",
-    description: `I am a god`,
-    isFriend: true
-  }
-]
+let inititalState = []
+
+
+// {
+//   id: 1,
+//   name: "Mary J Blige",
+//   avatarUrl: "https://bstars.ru/media/djcatalog2/images/item/20/mary-j-blige.1_f.webp",
+//   wallpaperUrl: "https://wallpaperaccess.com/full/1760835.jpg",
+//   description: `Didn't smoke any dope w/ Yanix`,
+//   followed: true
+// },
+// {
+//   id: 2,
+//   name: "John Legend",
+//   avatarUrl: "https://cloudfront-us-east-1.images.arcpublishing.com/pmn/DR2KSCTTKNCMBGUZCCFOCQZTV4.jpg",
+//   wallpaperUrl: "https://wallpaperaccess.com/full/1760835.jpg",
+//   description: `Singin' and believin' in love`,
+//   followed: false
+// },
+// {
+//   id: 3,
+//   name: "Kanye West",
+//   avatarUrl: "https://www.film.ru/sites/default/files/styles/thumb_260x320/public/persones/_imported/1577190.jpg",
+//   wallpaperUrl: "https://wallpaperaccess.com/full/1760835.jpg",
+//   description: `I am a god`,
+//   followed: true
+// }
 
 const usersReducer = (state = inititalState, action) => {
-    let newState = deepCopy(state)
+    
     switch (action.type) {
         case USERS_TOGGLE_FRIENDSHIP:
-            let arrayUserId = action.payload[0] - 1
-            newState[arrayUserId].isFriend = !(state[arrayUserId].isFriend)
+          {  
+            let newState = deepCopy(state)
+            let id = action.payload[0]
+            axios.get(`https://social-network.samuraijs.com/api/1.0/follow/${id}`).then((response) => {
+              let followed = response.data
+              if (followed) axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`)
+              else axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`)
+            }).then(() => {
+              // fetch mothafuckas again? idk
+            })
+            
             return newState
+          }
 
-          case USERS_FETCH_USERS:
-            //FETCH
+          case USERS_FETCH_USERS: {
+            let newState = deepCopy(action.payload)
             return newState;
+          }
 
 
         default:
