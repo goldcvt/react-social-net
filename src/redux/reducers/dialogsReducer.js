@@ -3,17 +3,17 @@ import { DIALOGS_CREATE_MESSAGE, DIALOGS_UPDATE_CURRENT_MESSAGE } from "../actio
 import { addMessage, typingMessage } from "../dialogFunctions"
 
 let dialogItemsData = [{
-    userId: 1,
+    id: 1,
     name: "Mary J Blige",
     avatarUrl: "https://bstars.ru/media/djcatalog2/images/item/20/mary-j-blige.1_f.webp"
   },
   {
-    userId: 2,
+    id: 2,
     name: "John Legend",
     avatarUrl: "https://cloudfront-us-east-1.images.arcpublishing.com/pmn/DR2KSCTTKNCMBGUZCCFOCQZTV4.jpg"
   },
   {
-    userId: 3,
+    id: 3,
     name: "Kanye West",
     avatarUrl: "https://www.film.ru/sites/default/files/styles/thumb_260x320/public/persones/_imported/1577190.jpg"
   },

@@ -5,16 +5,16 @@ const UserItem = (props) => {
     return (
         <div className={friend}>
             <div className={avatar_wrapper}>
-                <img src={props.user.avatarUrl} alt={`${props.user.name}'s Avatar`}  />
+                <img src={props.user.photos.small} alt={`${props.user.name}'s Avatar`}  />
             </div>
             <div className={info_wrapper}>
                 <div className={name_wrapper}>
                     <p>{props.user.name}</p>
                 </div>
                 <div className={controls_wrapper}>
-                    {/* <ButtonContainer component={FriendUnfriendButton} info={props.user.isFriend} /> */}
+                    {/* <ButtonContainer component={FriendUnfriendButton} info={props.user.followed} /> */}
                     <div className={controls_box}>
-                        <FriendUnfriendButton userId = {props.user.userId} isFriend={props.user.isFriend} toggleFriendship={props.toggleFriendship} />
+                        <FriendUnfriendButton id = {props.user.id} followed={props.user.followed} toggleFriendship={props.toggleFriendship} />
                         <button>Send Message</button>
                     </div>
                 </div>

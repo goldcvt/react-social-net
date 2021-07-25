@@ -6,7 +6,7 @@ let postsData = [{
     id: 0,
     text: "Howdy, partner",
     author: {
-      userId: 0,
+      id: 0,
       name: "Ragnar Lodbrok",
       avatarUrl: "https://i.ytimg.com/vi/BHPPLdWeGiw/maxresdefault.jpg",
       wallpaperUrl: "https://wallpaperaccess.com/full/1760835.jpg",
@@ -22,7 +22,7 @@ let postsData = [{
     id: 1,
     text: "Lorem ipsemum... You know the drill",
     author: {
-      userId: 0,
+      id: 0,
       name: "Ragnar Lodbrok",
       wallpaperUrl: "https://wallpaperaccess.com/full/1760835.jpg",
       avatarUrl: "https://i.ytimg.com/vi/BHPPLdWeGiw/maxresdefault.jpg",
@@ -37,7 +37,7 @@ let postsData = [{
 ];
 
 let userData = {
-  userId: 0,
+  id: 0,
   name: "Ragnar Lodbrok",
   wallpaperUrl: "https://wallpaperaccess.com/full/1760835.jpg",
   avatarUrl: "https://i.ytimg.com/vi/BHPPLdWeGiw/maxresdefault.jpg",

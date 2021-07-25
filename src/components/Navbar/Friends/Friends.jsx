@@ -2,7 +2,7 @@ import stylesheet from "./Friends.module.css";
 import Friend from "./Friend/Friend";
 
 const Friends = (props) => {
-    let threeFriends = props.state.filter(user => user.isFriend === true).slice(0, 3);
+    let threeFriends = props.state.filter(user => user.followed === true).slice(0, 3);
     let topFriends = [];
 
     for (let friend of threeFriends) {
