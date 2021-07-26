@@ -1,11 +1,13 @@
 import FriendUnfriendButton from './FollowButton/FriendUnfriendButton'
 import { controls_box, controls_wrapper, info_wrapper, name_wrapper, friend, avatar_wrapper } from './UserItem.module.scss'
+//import defaultAvatar from "../../../assets/images/defaultAvatar.png"
 
 const UserItem = (props) => {
     return (
         <div className={friend}>
             <div className={avatar_wrapper}>
-                <img src={props.user.photos.small} alt={`${props.user.name}'s Avatar`}  />
+                <img src={props.user.photos.small ? props.user.photos.small : "https://static.wikia.nocookie.net/onepunchman/images/8/81/Saitama_Anime_Profile.png"} 
+                alt={`${props.user.name}'s Avatar`}  />
             </div>
             <div className={info_wrapper}>
                 <div className={name_wrapper}>
