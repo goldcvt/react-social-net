@@ -4,6 +4,7 @@ import {
     PROFILE_CREATE_POST,
     PROFILE_LIKE_POST,
     PROFILE_UPDATE_CURRENT_POST,
+    USERS_COUNT_ALL,
     USERS_FETCH_USERS,
     USERS_REDUCE_USERS,
     USERS_TOGGLE_FRIENDSHIP
@@ -51,7 +52,12 @@ export const fetchUsers = (payload) => ({
 })
 
 // cuts down users in state when not on users page 
-export const reduceUsers = (payload = null) => ({
+export const reduceUsers = (payload = []) => ({
     type: USERS_REDUCE_USERS,
+    payload: payload
+})
+
+export const countAllUsers = (payload = []) => ({
+    type: USERS_COUNT_ALL,
     payload: payload
 })
