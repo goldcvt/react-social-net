@@ -1,9 +1,14 @@
 import Search from '../Utils/Search/Search'
 import UserItem from './UserItem/UserItem'
 import { allUsers_title, userscontainer, userlist, searchbar, filters, friends_title } from './Users.module.scss'
+import * as axios from 'axios'
 
 const Users = (props) => {
-    console.log(props.users)
+    const loadMoreUsers = () => {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(function(response) {
+            props.fetchUsers(response.data.items)
+        })
+    }
     let friends = props.users.filter(user => user.followed === true).map(user => <UserItem user={user} toggleFriendship={props.toggleFriendship} />)
     let notYetFriends = props.users.filter(user => user.followed !== true).map(user => <UserItem user={user} toggleFriendship={props.toggleFriendship} />)
     return (
@@ -22,6 +27,7 @@ const Users = (props) => {
                     </h2>
                 </div>
                 {notYetFriends}
+                <button onClick={loadMoreUsers}>Show More</button>
             </div>
             <div className={filters}>
                 <h1>Filters</h1>
