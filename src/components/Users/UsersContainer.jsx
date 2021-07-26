@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
         users: state.users,
         currentPage: state.currentPage,
         totalUsers: state.totalUsers,
-        usersPerPage: state.usersPerPage
+        usersPerPage: state.usersPerPage,
+        totalPages: state.totalPages
     }
 }
 
