@@ -17,10 +17,10 @@ let inititalState = {
   users: [], 
   currentPage: 1,
   totalUsers: 100,
-  usersPerPage: 10,
-  totalPages: Math.ceil(this.totalUsers / this.usersPerPage)
+  usersPerPage: 10
 }
 
+inititalState.totalPages = Math.ceil(inititalState.totalUsers / inititalState.usersPerPage)
 
 // {
 //   id: 1,
@@ -67,8 +67,9 @@ const usersReducer = (state = inititalState, action) => {
 
           case USERS_FETCH_USERS: {
             // back to overwriting state
-            let {users, totalCount, error, currentPage} = deepCopy(action.payload)
-            let newState = {...state, users: users, totalUsers: totalCount, currentPage: currentPage}
+            let {items, totalCount, error, pageNumber} = deepCopy(action.payload)
+            let newState = {...state, users: items, totalUsers: totalCount, currentPage: pageNumber}
+            debugger;
             return newState;
           }
 
@@ -78,7 +79,7 @@ const usersReducer = (state = inititalState, action) => {
           }
 
         default:
-            return state;
+          return state;
     }
 }
 
