@@ -4,7 +4,10 @@ import Users from "./UsersClass"
 
 const mapStateToProps = (state) => {
     return {
-        users: state.users
+        users: state.users,
+        currentPage: state.currentPage,
+        totalUsers: state.totalUsers,
+        usersPerPage: state.usersPerPage
     }
 }
 

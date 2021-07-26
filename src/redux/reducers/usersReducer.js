@@ -13,7 +13,12 @@ class User {
   }
 }
 
-let inititalState = []
+let inititalState = {
+  users: [], 
+  currentPage: 1,
+  totalUsers: 100,
+  usersPerPage: 10
+}
 
 
 // {
@@ -61,7 +66,8 @@ const usersReducer = (state = inititalState, action) => {
 
           case USERS_FETCH_USERS: {
             // back to overwriting state
-            let newState = deepCopy(action.payload)
+            let {users, totalCount, error, currentPage} = deepCopy(action.payload)
+            let newState = {...state, users: users, totalUsers: totalCount, currentPage: currentPage}
             return newState;
           }
 
