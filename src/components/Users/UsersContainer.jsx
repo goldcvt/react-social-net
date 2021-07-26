@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { fetchUsers, toggleFriendship } from "../../redux/actionCreators"
+import { fetchUsers, reduceUsers, toggleFriendship } from "../../redux/actionCreators"
 import Users from "./UsersClass"
 
 const mapStateToProps = (state) => {
@@ -16,6 +16,10 @@ const mapDispatchToProps = (dispatch) => {
         },
         fetchUsers: (payload) => {
             let action = fetchUsers(payload)
+            dispatch(action)
+        },
+        reduceUsers: (payload) => {
+            let action = reduceUsers(payload)
             dispatch(action)
         }
     }
