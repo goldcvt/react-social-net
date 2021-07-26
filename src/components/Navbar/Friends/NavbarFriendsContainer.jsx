@@ -4,7 +4,7 @@ import Friends from "./Friends"
 
 const mapStateToProps = (state) => {
     return {
-        state: state.users
+        users: state.users.users
     }
 }
 
