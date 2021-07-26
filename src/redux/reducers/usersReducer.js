@@ -60,7 +60,7 @@ const usersReducer = (state = inititalState, action) => {
           }
 
           case USERS_FETCH_USERS: {
-            let newState = deepCopy(action.payload)
+            let newState = [...state, ...deepCopy(action.payload)]
             return newState;
           }
 
