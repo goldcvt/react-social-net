@@ -60,7 +60,8 @@ const usersReducer = (state = inititalState, action) => {
           }
 
           case USERS_FETCH_USERS: {
-            let newState = [...state, ...deepCopy(action.payload)]
+            // back to overwriting state
+            let newState = deepCopy(action.payload)
             return newState;
           }
 
