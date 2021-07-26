@@ -17,7 +17,8 @@ let inititalState = {
   users: [], 
   currentPage: 1,
   totalUsers: 100,
-  usersPerPage: 10
+  usersPerPage: 10,
+  totalPages: Math.ceil(this.totalUsers / this.usersPerPage)
 }
 
 
