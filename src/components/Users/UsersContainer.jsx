@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { fetchUsers, toggleFriendship } from "../../redux/actionCreators"
-import Users from "./Users"
+import Users from "./UsersClass"
 
 const mapStateToProps = (state) => {
     return {
