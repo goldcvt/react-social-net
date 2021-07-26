@@ -1,5 +1,5 @@
 import deepCopy from "../../utils/deepCopy"
-import { USERS_FETCH_USERS, USERS_TOGGLE_FRIENDSHIP } from "../actionTypes"
+import { USERS_FETCH_USERS, USERS_REDUCE_USERS, USERS_TOGGLE_FRIENDSHIP } from "../actionTypes"
 import * as axios from 'axios'
 
 class User {
@@ -64,6 +64,10 @@ const usersReducer = (state = inititalState, action) => {
             return newState;
           }
 
+          case USERS_REDUCE_USERS: {
+            let newState = deepCopy(state).slice(1, 10)
+            return newState
+          }
 
         default:
             return state;
