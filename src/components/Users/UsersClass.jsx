@@ -45,6 +45,9 @@ class Users extends React.Component {
         // don't clutter state with all other users, will remove with pagination
         this.props.reduceUsers([])
     }
+    componentDidMount() {
+        this.loadUsers()
+    }
 }
 
 export default Users;
