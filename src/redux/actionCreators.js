@@ -5,6 +5,7 @@ import {
     PROFILE_LIKE_POST,
     PROFILE_UPDATE_CURRENT_POST,
     USERS_FETCH_USERS,
+    USERS_REDUCE_USERS,
     USERS_TOGGLE_FRIENDSHIP
 } from "./actionTypes"
 
@@ -46,5 +47,11 @@ export const toggleFriendship = (payload) => ({
 
 export const fetchUsers = (payload) => ({
     type: USERS_FETCH_USERS,
+    payload: payload
+})
+
+// cuts down users in state when not on users page 
+export const reduceUsers = (payload = null) => ({
+    type: USERS_REDUCE_USERS,
     payload: payload
 })
