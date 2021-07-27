@@ -1,7 +1,7 @@
 import React from "react";
 import Search from '../Utils/Search/Search'
 import UserItem from './UserItem/UserItem'
-import { paginator, current_page, page_number, page_container, allUsers_title, userscontainer, userlist, searchbar, filters, friends_title } from './Users.module.scss'
+import { paginator, page_link, page_link_current, page_number, page_container, allUsers_title, userscontainer, userlist, searchbar, filters, friends_title } from './Users.module.scss'
 import * as axios from 'axios'
 import { NavLink } from "react-router-dom";
 
@@ -19,22 +19,29 @@ class Users extends React.Component {
         })
     }
     render() {
+        // this is trash code, load time is enormous. Plus NavLink is being called on several occasions, idk why
         const createPaginator = () => {
             let pagebar = []
             
             for (let index = 1; index <= this.props.totalPages; index++) {
-                
                 pagebar.push(
-                    <div>
-                        <NavLink to={index === 1 ? `/users` : `/users?page=${index}`} activeClassName={current_page} >
-                            <div className={page_number} onClick={
-                                () => {
-                                    this.loadUsers({ page: index })
-                                }
+                    <NavLink to={index === 1 ? `/users` : `/users?page=${index}`} className={page_link} activeClassName={page_link_current} 
+                    isActive={
+                        (match, location) => {
+                            // location: {pathname: "/users", search: "?page=4", hash: "", state: null, key: "wavicl"}
+                            if (Number(location.search.split("=")[1]) === index) {
+                                return true;
                             }
-                            >{index}</div>
-                        </NavLink>
-                    </div>
+                        }
+                    }>
+                        <div className={page_number} onClick={
+                            () => {
+                                this.loadUsers({ page: index })
+                            }
+                        }
+                        >{index}</div>
+                    </NavLink>
+                    
                 )
             }
             let currentPage = this.props.currentPage
