@@ -68,7 +68,8 @@ const usersReducer = (state = inititalState, action) => {
           case USERS_FETCH_USERS: {
             // back to overwriting state
             let {items, totalCount, error, pageNumber} = deepCopy(action.payload)
-            let newState = {...state, users: items, totalUsers: totalCount, currentPage: pageNumber}
+            let pages = Math.ceil(totalCount / state.usersPerPage)
+            let newState = {...state, users: items, totalUsers: totalCount, currentPage: pageNumber, totalPages: pages}
             debugger;
             return newState;
           }
