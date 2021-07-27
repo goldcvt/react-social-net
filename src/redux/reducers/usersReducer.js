@@ -70,7 +70,6 @@ const usersReducer = (state = inititalState, action) => {
             let {items, totalCount, error, pageNumber} = deepCopy(action.payload)
             let pages = Math.ceil(totalCount / state.usersPerPage)
             let newState = {...state, users: items, totalUsers: totalCount, currentPage: pageNumber, totalPages: pages}
-            debugger;
             return newState;
           }
 
