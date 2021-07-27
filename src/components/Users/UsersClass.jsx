@@ -104,7 +104,6 @@ class Users extends React.Component {
                             </h2>
                         </div>
                         {notYetFriends}
-                        <button onClick={this.loadUsers}>Show More</button>
                     </div>
                     <div className={filters}>
                         <h1>Filters</h1>
