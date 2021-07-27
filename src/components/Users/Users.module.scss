@@ -1,5 +1,18 @@
+.current_page {
+    background-color: chocolate;
+    .page {
+        
+    }
+}
+
 .page_container {
     width: 100%;
+    .paginator {
+        height: 30px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 40px);
+    }
 }
 
 .userscontainer {
