@@ -56,8 +56,7 @@ class Users extends React.Component {
                     [pagebar[pagebar.length - 1]]
                 )
             } else if (currentPage < 5) {
-                let rightEnd = currentPage + 2
-                pagebar = pagebar.slice(0, rightEnd).concat(
+                pagebar = pagebar.slice(0, 5).concat(
                     <div>
                         <div className={page_number}>...</div>
                     </div>
@@ -65,7 +64,7 @@ class Users extends React.Component {
                     [pagebar[pagebar.length - 1]]
                 )
             } else if (currentPage > totalPages - 4) {
-                let leftEnd = currentPage - 2
+                let leftEnd = totalPages - 4
                 pagebar = [pagebar[0]].concat(
                     <div>
                         <div className={page_number}>...</div>
